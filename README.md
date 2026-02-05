@@ -1,16 +1,50 @@
-# React + Vite
+# Rose Day
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small, interactive **Rose Day** experience: tap the rose to watch it bloom and hearts appear, and add extra roses with a click.
 
-Currently, two official plugins are available:
+**[→ Live on Vercel](https://rose-day-chi-nine.vercel.app)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What it does
 
-## React Compiler
+- **Bloom the rose** – Click the main rose to trigger a bloom animation and floating hearts.
+- **Add roses** – Use the control to place more roses on the stage.
+- Responsive layout and simple, friendly styling.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech
 
-## Expanding the ESLint configuration
+- **React 19** + **Vite 7**
+- CSS (no UI framework)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173).
+
+## Build
+
+```bash
+npm run build
+npm run preview   # optional: preview production build
+```
+
+## Deploy
+
+The app is set up for [Vercel](https://vercel.com). Push to the linked GitHub repo to deploy, or:
+
+```bash
+npx vercel --prod
+```
+
+## Project structure
+
+- `src/components/RoseDay/` – Main Rose Day UI (rose, visuals, message panel).
+- `src/styles/RoseDay.css` – Styles for the experience.
+- `index.html` – Entry HTML and meta (including OG and Twitter tags).
+
+---
+
+Made with care for Rose Day.
