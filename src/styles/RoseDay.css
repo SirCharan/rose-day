@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Patrick+Hand&display=swap');
+
+/* Reset for Rose Day full-page layout */
+.rose-day {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rose-day {
+  --c-outline: #592828;
+  --c-bg: #FBE4E8;
+  --c-card: #FFFDF0;
+  --c-red: #D92B4B;
+  --c-red-dark: #A61B34;
+  --c-green: #3E7C59;
+  --c-pink-accent: #FF9EB5;
+  --c-shadow: rgba(89, 40, 40, 0.2);
+  --f-head: 'Chewy', cursive;
+  --f-body: 'Patrick Hand', cursive;
+  --border-thick: 4px solid var(--c-outline);
+  --shadow-hard: 5px 5px 0px var(--c-outline);
+  --shadow-float: 0px 10px 20px var(--c-shadow);
+}
+
+.rose-day {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.rose-day * {
+  box-sizing: border-box;
+}
+
+.rose-day-body {
+  background-color: var(--c-bg);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.4) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.4) 2px, transparent 2px);
+  background-size: 40px 40px;
+  font-family: var(--f-body);
+  color: var(--c-outline);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.rose-day-body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+}
+
+.rose-day .stage {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 85vh;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.rose-day .card {
+  background: var(--c-card);
+  border: var(--border-thick);
+  border-radius: 20px 255px 20px 255px / 255px 20px 255px 20px;
+  box-shadow: var(--shadow-hard);
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.rose-day .card:hover {
+  transform: scale(1.02) rotate(-1deg);
+}
+
+.rose-day .visual-panel {
+  position: relative;
+  background: #FFF0F3;
+  overflow: hidden;
+}
+
+.rose-day h1 {
+  font-family: var(--f-head);
+  font-size: 6rem;
+  color: var(--c-red);
+  line-height: 0.8;
+  text-align: center;
+  -webkit-text-stroke: 3px var(--c-outline);
+  text-shadow: 4px 4px 0px var(--c-pink-accent);
+  transform: rotate(-5deg);
+  z-index: 10;
+  margin-bottom: 2rem;
+  pointer-events: none;
+}
+
+.rose-day h1 span {
+  display: block;
+  font-size: 3rem;
+  color: var(--c-card);
+  -webkit-text-stroke: 3px var(--c-outline);
+  text-shadow: 3px 3px 0px var(--c-outline);
+  transform: rotate(3deg) translateX(40px);
+}
+
+.rose-day .rose-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rose-float 4s ease-in-out infinite;
+}
+
+.rose-day .rose-container.rose-blooming {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.rose-day .rose-head {
+  width: 180px;
+  height: 160px;
+  background: var(--c-red);
+  border: var(--border-thick);
+  border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
+  position: relative;
+  z-index: 2;
+  box-shadow: inset -15px -15px 0 rgba(0, 0, 0, 0.1);
+}
+
+.rose-day .petal-swirl {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 60px;
+  border: var(--border-thick);
+  border-top: none;
+  border-radius: 0 0 60px 60px;
+  background: var(--c-red-dark);
+}
+
+.rose-day .petal-swirl::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  width: 80px;
+  height: 40px;
+  border: var(--border-thick);
+  border-bottom: none;
+  border-radius: 40px 40px 0 0;
+  background: var(--c-red);
+}
+
+.rose-day .shine {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  width: 30px;
+  height: 15px;
+  background: white;
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  opacity: 0.8;
+  z-index: 5;
+}
+
+.rose-day .shine::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 5px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+}
+
+.rose-day .stem {
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  width: 12px;
+  height: 100px;
+  background: var(--c-green);
+  border: var(--border-thick);
+  z-index: 1;
+  transform: translateX(-50%);
+}
+
+.rose-day .leaf {
+  position: absolute;
+  width: 60px;
+  height: 40px;
+  background: var(--c-green);
+  border: var(--border-thick);
+  border-radius: 2px 40px 2px 40px;
+  z-index: 0;
+}
+
+.rose-day .leaf.left {
+  bottom: -40px;
+  left: 30px;
+  transform: rotate(-20deg);
+}
+
+.rose-day .leaf.right {
+  bottom: -20px;
+  right: 30px;
+  transform: scaleX(-1) rotate(-10deg);
+}
+
+.rose-day .message-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rose-day .note-card {
+  background: #FFF;
+  border: var(--border-thick);
+  border-radius: 15px 225px 10px 240px / 240px 15px 230px 15px;
+  box-shadow: var(--shadow-hard);
+  padding: 2.5rem;
+  flex-grow: 1;
+  position: relative;
+}
+
+.rose-day .tape {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(2deg);
+  width: 120px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(200, 200, 200, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.rose-day h2 {
+  font-family: var(--f-head);
+  font-size: 2.5rem;
+  color: var(--c-outline);
+  margin-bottom: 1rem;
+}
+
+.rose-day .note-card p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.rose-day .action-btn {
+  background: var(--c-pink-accent);
+  border: var(--border-thick);
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-family: var(--f-head);
+  font-size: 1.5rem;
+  color: var(--c-outline);
+  cursor: pointer;
+  box-shadow: 4px 4px 0px var(--c-outline);
+  transition: all 0.1s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: auto;
+  align-self: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.rose-day .action-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px var(--c-outline);
+}
+
+.rose-day .action-btn:hover {
+  background: #FFB6C8;
+}
+
+.rose-day .deco-heart {
+  position: absolute;
+  color: var(--c-red);
+  font-size: 2rem;
+  animation: rose-pulse 2s infinite;
+}
+
+.rose-day .deco-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--c-outline);
+  border-radius: 50%;
+}
+
+.rose-day .d1 {
+  top: -20px;
+  left: -20px;
+  transform: rotate(-15deg);
+  font-size: 4rem;
+}
+
+.rose-day .d2 {
+  bottom: -30px;
+  right: -10px;
+  transform: rotate(15deg);
+  color: var(--c-pink-accent);
+  font-size: 3rem;
+  -webkit-text-stroke: 2px var(--c-outline);
+}
+
+.rose-day .d3 {
+  top: 50%;
+  right: -40px;
+  font-size: 2rem;
+}
+
+@keyframes rose-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes rose-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.rose-day .bow {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 100px;
+  height: 60px;
+  z-index: 20;
+  transform: rotate(-15deg);
+}
+
+.rose-day .bow-left,
+.rose-day .bow-right {
+  position: absolute;
+  width: 40px;
+  height: 50px;
+  background: var(--c-red);
+  border: var(--border-thick);
+  border-radius: 20px;
+}
+
+.rose-day .bow-left {
+  left: 0;
+  transform: skewY(10deg);
+}
+
+.rose-day .bow-right {
+  right: 0;
+  transform: skewY(-10deg);
+}
+
+.rose-day .bow-center {
+  position: absolute;
+  left: 35px;
+  top: 15px;
+  width: 30px;
+  height: 30px;
+  background: var(--c-pink-accent);
+  border: var(--border-thick);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.rose-day .extra-roses {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.rose-day .rose-container.extra {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  animation: none;
+}
+
+@media (max-width: 800px) {
+  .rose-day .stage {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .rose-day h1 {
+    font-size: 4rem;
+  }
+
+  .rose-day h1 span {
+    font-size: 2rem;
+  }
+}
