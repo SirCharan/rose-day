@@ -42,12 +42,15 @@
   background-size: 40px 40px;
   font-family: var(--f-body);
   color: var(--c-outline);
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 .rose-day-body::after {
@@ -413,17 +416,423 @@
   animation: none;
 }
 
+/* Tablet and small desktop */
 @media (max-width: 800px) {
   .rose-day .stage {
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     height: auto;
+    min-height: 85vh;
+    min-height: 85dvh;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .rose-day .card {
+    padding: 1.5rem;
   }
 
   .rose-day h1 {
     font-size: 4rem;
+    -webkit-text-stroke: 2px var(--c-outline);
+    text-shadow: 3px 3px 0px var(--c-pink-accent);
   }
 
   .rose-day h1 span {
     font-size: 2rem;
+    -webkit-text-stroke: 2px var(--c-outline);
+  }
+
+  .rose-day .rose-container {
+    width: 260px;
+    height: 260px;
+  }
+
+  .rose-day .rose-head {
+    width: 155px;
+    height: 138px;
+  }
+
+  .rose-day .petal-swirl {
+    width: 105px;
+    height: 52px;
+    top: 18px;
+  }
+
+  .rose-day .petal-swirl::after {
+    width: 70px;
+    height: 35px;
+    left: 18px;
+  }
+
+  .rose-day .stem {
+    height: 85px;
+    bottom: -70px;
+  }
+
+  .rose-day .leaf {
+    width: 52px;
+    height: 34px;
+  }
+
+  .rose-day .note-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .rose-day .tape {
+    width: 100px;
+    height: 28px;
+  }
+
+  .rose-day h2 {
+    font-size: 2rem;
+  }
+
+  .rose-day .note-card p {
+    font-size: 1.25rem;
+  }
+
+  .rose-day .action-btn {
+    min-height: 48px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.35rem;
+  }
+
+  .rose-day .bow {
+    width: 80px;
+    height: 48px;
+    top: -20px;
+    left: -20px;
+  }
+
+  .rose-day .bow-left,
+  .rose-day .bow-right {
+    width: 32px;
+    height: 40px;
+  }
+
+  .rose-day .bow-center {
+    left: 28px;
+    top: 12px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .rose-day .deco-heart.d1 {
+    font-size: 3rem;
+  }
+
+  .rose-day .deco-heart.d2 {
+    font-size: 2.25rem;
+  }
+
+  .rose-day .deco-heart.d3 {
+    font-size: 1.5rem;
+    right: -24px;
+  }
+
+  .rose-day .rose-container.extra {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Large phones */
+@media (max-width: 600px) {
+  .rose-day .stage {
+    gap: 1rem;
+    padding: 1rem 0.75rem;
+    min-height: auto;
+  }
+
+  .rose-day .card {
+    padding: 1.25rem;
+  }
+
+  .rose-day h1 {
+    font-size: 3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .rose-day h1 span {
+    font-size: 1.6rem;
+    transform: rotate(3deg) translateX(24px);
+  }
+
+  .rose-day .rose-container {
+    width: 220px;
+    height: 220px;
+  }
+
+  .rose-day .rose-head {
+    width: 132px;
+    height: 118px;
+  }
+
+  .rose-day .petal-swirl {
+    width: 88px;
+    height: 44px;
+    top: 16px;
+  }
+
+  .rose-day .petal-swirl::after {
+    width: 58px;
+    height: 29px;
+    left: 15px;
+  }
+
+  .rose-day .shine {
+    top: 20px;
+    right: 28px;
+    width: 24px;
+    height: 12px;
+  }
+
+  .rose-day .stem {
+    width: 10px;
+    height: 72px;
+    bottom: -60px;
+  }
+
+  .rose-day .leaf {
+    width: 44px;
+    height: 28px;
+  }
+
+  .rose-day .leaf.left {
+    bottom: -32px;
+    left: 20px;
+  }
+
+  .rose-day .leaf.right {
+    bottom: -16px;
+    right: 20px;
+  }
+
+  .rose-day .note-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .rose-day .tape {
+    width: 85px;
+    height: 24px;
+  }
+
+  .rose-day h2 {
+    font-size: 1.75rem;
+  }
+
+  .rose-day .note-card p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .rose-day .message-panel {
+    gap: 1rem;
+  }
+
+  .rose-day .action-btn {
+    min-height: 48px;
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  .rose-day .bow {
+    width: 64px;
+    height: 40px;
+    top: -16px;
+    left: -16px;
+  }
+
+  .rose-day .bow-left,
+  .rose-day .bow-right {
+    width: 26px;
+    height: 32px;
+  }
+
+  .rose-day .bow-center {
+    left: 22px;
+    top: 10px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .rose-day .deco-heart.d1 {
+    font-size: 2.5rem;
+    top: -12px;
+    left: -12px;
+  }
+
+  .rose-day .deco-heart.d2 {
+    font-size: 1.75rem;
+    bottom: -20px;
+    right: -8px;
+  }
+
+  .rose-day .deco-heart.d3 {
+    font-size: 1.25rem;
+    right: -16px;
+  }
+
+  .rose-day .rose-container.extra {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .rose-day .stage {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .rose-day .card.visual-panel {
+    padding: 1rem;
+  }
+
+  .rose-day h1 {
+    font-size: 2.5rem;
+    -webkit-text-stroke: 2px var(--c-outline);
+    margin-bottom: 1rem;
+  }
+
+  .rose-day h1 span {
+    font-size: 1.35rem;
+    transform: rotate(3deg) translateX(16px);
+  }
+
+  .rose-day .rose-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .rose-day .rose-head {
+    width: 108px;
+    height: 96px;
+  }
+
+  .rose-day .petal-swirl {
+    width: 72px;
+    height: 36px;
+    top: 14px;
+    border-radius: 0 0 36px 36px;
+  }
+
+  .rose-day .petal-swirl::after {
+    width: 48px;
+    height: 24px;
+    left: 12px;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .rose-day .shine {
+    top: 16px;
+    right: 22px;
+    width: 18px;
+    height: 10px;
+  }
+
+  .rose-day .stem {
+    width: 8px;
+    height: 60px;
+    bottom: -50px;
+  }
+
+  .rose-day .leaf {
+    width: 36px;
+    height: 24px;
+  }
+
+  .rose-day .note-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .rose-day .tape {
+    width: 70px;
+    height: 20px;
+  }
+
+  .rose-day h2 {
+    font-size: 1.5rem;
+  }
+
+  .rose-day .note-card p {
+    font-size: 1rem;
+  }
+
+  .rose-day .action-btn {
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .rose-day .bow {
+    width: 52px;
+    height: 32px;
+    top: -12px;
+    left: -12px;
+  }
+
+  .rose-day .bow-left,
+  .rose-day .bow-right {
+    width: 22px;
+    height: 26px;
+  }
+
+  .rose-day .bow-center {
+    left: 18px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .rose-day .deco-heart.d1 {
+    font-size: 2rem;
+  }
+
+  .rose-day .deco-heart.d2 {
+    font-size: 1.5rem;
+  }
+
+  .rose-day .deco-heart.d3 {
+    display: none;
+  }
+
+  .rose-day .rose-container.extra {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .rose-day h1 {
+    font-size: 2.1rem;
+  }
+
+  .rose-day h1 span {
+    font-size: 1.15rem;
+  }
+
+  .rose-day .rose-container {
+    width: 160px;
+    height: 160px;
+  }
+
+  .rose-day .rose-head {
+    width: 96px;
+    height: 85px;
+  }
+
+  .rose-day .petal-swirl {
+    width: 64px;
+    height: 32px;
+  }
+
+  .rose-day .petal-swirl::after {
+    width: 42px;
+    height: 21px;
   }
 }
